@@ -3,28 +3,37 @@
 // This package utilizes a SHA-1 hash algorithm and the custom hash utility from
 // "github.com/ecorreiax/gobfs/internal/hash" to create a hash index.
 // The hash index is then stored in a boolean bitset.
-package gobfs
+package main
 
 import (
 	"crypto/sha1"
 
+	"github.com/ecorreiax/gobfs/cmd"
+	"github.com/ecorreiax/gobfs/internal/forbidden"
 	"github.com/ecorreiax/gobfs/internal/hash"
-	"github.com/ecorreiax/gobfs/internal/list"
 )
 
-// bitset is a boolean array used to store hash indexes.
-var bitset []bool
-
+// init initializes the global bitset with precomputed hash values
+// from a list of invalid usernames.
+//
+// This function is automatically called when the package is imported.
+// It uses SHA-1 hashing via the CreateHash function to generate indexes
+// for each invalid username. These indexes are then added to the bitset
+// using the AddHash function.
+//
+// Note:
+//
+//	This function depends on 'list.Invalid_usernames' to be populated with
+//	the set of usernames that are to be marked as invalid.
+//
+// Example:
+//
+//	Automatically invoked upon package import.
 func init() {
-	var h = sha1.New()
-	for _, s := range list.Invalid_usernames {
+	h := sha1.New()
+	for _, s := range forbidden.ForbiddenUsernames {
 		idx := hash.CreateHash(h, s)
-		if idx >= len(bitset) {
-			newBitset := make([]bool, idx+1)
-			copy(newBitset, bitset)
-			bitset = newBitset
-		}
-		bitset[idx] = true
+		hash.AddHash(idx)
 	}
 }
 
@@ -47,7 +56,19 @@ func init() {
 //
 //	result := Check("someUsername")
 func Check(u string) bool {
-	var h = sha1.New()
+	h := sha1.New()
 	idx := hash.CreateHash(h, u)
-	return bitset[idx]
+	return hash.VerifyHash(idx)
+}
+
+// main is the entry point for the gobfs application.
+//
+// This function simply invokes the Execute function from the cmd package, which initializes
+// and runs the root Cobra command. Any errors returned from Execute are logged to the standard output.
+//
+// Example:
+//
+//	Invoked automatically when the application is run.
+func main() {
+	cmd.Execute()
 }
