@@ -45,4 +45,4 @@ func createUser() {
 
 ## License
 
-This project is under MIT License.
+This project is under [MIT License](https://github.com/ecorreiax/gobfs/blob/main/LICENSE).
