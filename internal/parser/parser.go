@@ -4,7 +4,6 @@
 package parser
 
 import (
-	"fmt"
 	"strings"
 	"unicode"
 
@@ -38,8 +37,6 @@ func ParseString(s string) string {
 			b.WriteString(gr.Str())
 		}
 	}
-
-	fmt.Printf("%v:%v\n", "parsed:", b.String())
 
 	return b.String()
 }

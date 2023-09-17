@@ -7,7 +7,6 @@ package hash
 import (
 	"bytes"
 	"encoding/binary"
-	"fmt"
 	"hash"
 
 	"github.com/ecorreiax/gobfs/internal/parser"
@@ -38,7 +37,9 @@ func CreateHash(h hash.Hash, s string) int {
 	result, _ := binary.ReadVarint(buf)
 	idx := int(result)
 
-	fmt.Printf("%v:%v\n", "idx", idx)
+	if idx < 0 {
+		idx = -idx
+	}
 
 	return idx
 }

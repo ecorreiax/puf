@@ -7,19 +7,41 @@ package main
 
 import (
 	"crypto/sha1"
+	"fmt"
 
 	"github.com/ecorreiax/gobfs/internal/hash"
+	"github.com/ecorreiax/gobfs/pkg/list"
 )
 
-// h is the hash function being used, in this case, SHA-1.
-var h = sha1.New()
-
 // bitset is a boolean array used to store hash indexes.
-var bitset [100]bool
+var bitset []bool
+
+func init() {
+	var h = sha1.New()
+	for _, s := range list.Invalid_usernames {
+		idx := hash.CreateHash(h, s)
+		if idx >= len(bitset) {
+			newBitset := make([]bool, idx+1)
+			copy(newBitset, bitset)
+			bitset = newBitset
+		}
+		bitset[idx] = true
+	}
+}
 
 // The main function of the gobfs application.
-// It creates a hash index for a string and stores it in the bitset.
+// It creates a hash index for a string and check if
+// this index is already taken in the bitset.
 func main() {
-	h1 := hash.CreateHash(h, "e_correia") // TODO: remove hard coded username
-	bitset[h1] = true
+	var h = sha1.New()
+	username := "ecorreia"
+	idx := hash.CreateHash(h, username)
+	p := bitset[idx]
+
+	if p {
+		fmt.Printf("username %v is not allowed\n", username)
+		return
+	}
+
+	fmt.Printf("username %v is ok to be used\n", username)
 }
