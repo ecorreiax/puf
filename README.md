@@ -1,5 +1,10 @@
 # gobfs
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/ecorreiax/gobfs)](https://goreportcard.com/report/github.com/ecorreiax/gobfs)
+![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/ecorreiax/gobfs)
+![GitHub](https://img.shields.io/github/license/ecorreiax/gobfs)
+![GitHub issues](https://img.shields.io/github/issues/ecorreiax/gobfs)
+
 **Gobfs** (Go Bloom Filter Structure) is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset.  
 
 ## What's a Bloom Filter
