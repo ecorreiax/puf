@@ -38,9 +38,7 @@ func CreateHash(h hash.Hash, s string) int {
 	bits := h.Sum(nil)
 	buf := bytes.NewBuffer(bits)
 	result, _ := binary.ReadVarint(buf)
-	idx := int(result)
-
-	return idx
+	return int(result)
 }
 
 // AddHash sets a bit in the global bitset based on the given index.
@@ -66,6 +64,7 @@ func AddHash(idx int) {
 		copy(newBitset, bitset)
 		bitset = newBitset
 	}
+
 	bitset[idx] = true
 }
 
