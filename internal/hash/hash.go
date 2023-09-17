@@ -9,7 +9,7 @@ import (
 	"encoding/binary"
 	"hash"
 
-	"github.com/ecorreiax/gobfs/pkg/parser"
+	"github.com/ecorreiax/gobfs/internal/parser"
 )
 
 // bitset is a boolean array used to store hash indexes.
