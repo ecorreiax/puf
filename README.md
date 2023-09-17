@@ -24,14 +24,13 @@ go get -u github.com/ecorreiax/gobfs
 
 ## Examples
 
-Kick things off by passing a username string to the `Check()` method. This returns a boolean, tipping you off if the username shows up in our dataset. If it does, it's definitely a red flag and you shouldn't let it into your database.
-
+Kick things off by passing a username string to the `Check()` method. This returns a boolean, tipping you off if the username is invalid or not.
 
 ```go
 func createUser() {
   u := "username"
-  valid := gobfs.Check(u)
-  if !valid {
+  invalid := gobfs.Check(u)
+  if invalid {
    // abort creation
   }
   // continue creation
