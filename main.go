@@ -10,7 +10,7 @@ import (
 	"fmt"
 
 	"github.com/ecorreiax/gobfs/internal/hash"
-	"github.com/ecorreiax/gobfs/pkg/list"
+	"github.com/ecorreiax/gobfs/internal/list"
 )
 
 // bitset is a boolean array used to store hash indexes.
