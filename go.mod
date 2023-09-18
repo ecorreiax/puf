@@ -1,4 +1,4 @@
-module github.com/ecorreiax/gobfs
+module github.com/ecorreiax/puf
 
 go 1.20
 

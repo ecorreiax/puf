@@ -1,7 +1,7 @@
 .PHONY: run
 
 run:
-	go run gobfs.go
+	go run puf.go
 
 build:
-	go build -v -o gobfs gobfs.go
+	go build -v -o puf puf.go

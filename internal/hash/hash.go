@@ -1,7 +1,7 @@
 // Package hash offers utilities to generate hash values based on provided inputs.
 //
 // This package utilizes the standard library's hash interface and custom parser utilities
-// from the "github.com/ecorreiax/gobfs/internal/parser" package.
+// from the "github.com/ecorreiax/puf/internal/parser" package.
 package hash
 
 import (
@@ -9,14 +9,14 @@ import (
 	"encoding/binary"
 	"hash"
 
-	"github.com/ecorreiax/gobfs/internal/parser"
+	"github.com/ecorreiax/puf/internal/parser"
 )
 
 // bitset is a boolean array used to store hash indexes.
 var bitset []bool
 
 // CreateHash computes a hash index based on a given string and hash algorithm.
-// It uses the parser from "github.com/ecorreiax/gobfs/internal/parser" to sanitize the input
+// It uses the parser from "github.com/ecorreiax/puf/internal/parser" to sanitize the input
 // before hashing it and then calculates an integer index from the hashed bytes.
 //
 // Example:

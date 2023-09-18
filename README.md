@@ -1,11 +1,11 @@
-# gobfs
+# puf
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/ecorreiax/gobfs)](https://goreportcard.com/report/github.com/ecorreiax/gobfs)
-![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/ecorreiax/gobfs)
-![GitHub](https://img.shields.io/github/license/ecorreiax/gobfs)
-![GitHub issues](https://img.shields.io/github/issues/ecorreiax/gobfs)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ecorreiax/puf)](https://goreportcard.com/report/github.com/ecorreiax/puf)
+![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/ecorreiax/puf)
+![GitHub](https://img.shields.io/github/license/ecorreiax/puf)
+![GitHub issues](https://img.shields.io/github/issues/ecorreiax/puf)
 
-**Gobfs** (Go Bloom Filter Structure) is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset.  
+**puf** (Pejorative username filter) is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset that might represent a pejorative username that shouldn't be used.  
 
 ## What's a Bloom Filter
 
@@ -15,16 +15,16 @@
 
 [1]: https://en.wikipedia.org/wiki/Bloom_filter
 
-## Why use gobfs
+## Why use puf
 
-With gobfs, you can quickly check a username against our hand-picked dataset to make sure it's cool with community rules. That way, we all get to hang out in a safer space. We're always tweaking our dataset to keep up with the latest tricks from the bad guys.
+With puf, you can quickly check a username against our hand-picked dataset to make sure it's cool with community rules. That way, we all get to hang out in a safer space. We're always tweaking our dataset to keep up with the latest tricks from the bad guys.
 
 ## Install
 
 With a [correctly configured](https://go.dev/doc/install#testing) Go toolchain:
 
 ```
-go get -u github.com/ecorreiax/gobfs
+go get -u github.com/ecorreiax/puf
 ```
 
 ## Examples
@@ -34,7 +34,7 @@ Kick things off by passing a username string to the `Check()` method. This retur
 ```go
 func createUser() {
   u := "username"
-  invalid := gobfs.Check(u)
+  invalid := puf.Check(u)
   if invalid {
    // abort creation
   }
@@ -49,4 +49,4 @@ func createUser() {
 
 ## License
 
-This project is under [MIT License](https://github.com/ecorreiax/gobfs/blob/main/LICENSE).
+This project is under [MIT License](https://github.com/ecorreiax/puf/blob/main/LICENSE).

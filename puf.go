@@ -1,15 +1,15 @@
-// This is the main package for the gobfs application.
+// This is the main package for the puf application.
 //
 // This package utilizes a SHA-1 hash algorithm and the custom hash utility from
-// "github.com/ecorreiax/gobfs/internal/hash" to create a hash index.
+// "github.com/ecorreiax/puf/internal/hash" to create a hash index.
 // The hash index is then stored in a boolean bitset.
-package gobfs
+package puf
 
 import (
 	"crypto/sha1"
 
-	"github.com/ecorreiax/gobfs/internal/forbidden"
-	"github.com/ecorreiax/gobfs/internal/hash"
+	"github.com/ecorreiax/puf/internal/forbidden"
+	"github.com/ecorreiax/puf/internal/hash"
 )
 
 // init initializes the global bitset with precomputed hash values
