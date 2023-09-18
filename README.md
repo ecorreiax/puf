@@ -5,7 +5,7 @@
 ![GitHub](https://img.shields.io/github/license/ecorreiax/puf)
 ![GitHub issues](https://img.shields.io/github/issues/ecorreiax/puf)
 
-**PUF** (Pejorative Username Filter) is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset that might represent a pejorative username that shouldn't be used.  
+**PUF** _(Pejorative Username Filter)_ is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset that might represent a pejorative username that shouldn't be used.  
 
 ## Why use puf
 
