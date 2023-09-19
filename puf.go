@@ -1,15 +1,16 @@
 // This is the main package for the puf application.
 //
 // This package utilizes a SHA-1 hash algorithm and the custom hash utility from
-// "github.com/ecorreiax/puf/internal/hash" to create a hash index.
+// "github.com/ecorreiax/gobfs" to create a hash index.
 // The hash index is then stored in a boolean bitset.
 package puf
 
 import (
 	"crypto/sha1"
 
+	"github.com/ecorreiax/gobfs"
 	"github.com/ecorreiax/puf/internal/forbidden"
-	"github.com/ecorreiax/puf/internal/hash"
+	"github.com/ecorreiax/puf/internal/parser"
 )
 
 // init initializes the global bitset with precomputed hash values
@@ -31,8 +32,8 @@ import (
 func init() {
 	h := sha1.New()
 	for _, s := range forbidden.ForbiddenUsernames {
-		idx := hash.CreateHash(h, s)
-		hash.AddHash(idx)
+		idx, _ := gobfs.CreateHash(h, parser.ParseString(s))
+		gobfs.AddToHash(idx)
 	}
 }
 
@@ -56,6 +57,6 @@ func init() {
 //	result := Check("someUsername")
 func Check(u string) bool {
 	h := sha1.New()
-	idx := hash.CreateHash(h, u)
-	return hash.VerifyHash(idx)
+	idx, _ := gobfs.CreateHash(h, u)
+	return gobfs.GetFromHash(idx)
 }
