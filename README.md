@@ -5,19 +5,11 @@
 ![GitHub](https://img.shields.io/github/license/ecorreiax/puf)
 ![GitHub issues](https://img.shields.io/github/issues/ecorreiax/puf)
 
-**puf** (Pejorative username filter) is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset that might represent a pejorative username that shouldn't be used.  
-
-## What's a Bloom Filter
-
-> A Bloom filter is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970, that is used to test whether an element is a member of a set. False positive matches are possible, but false negatives are not – in other words, a query returns either "possibly in set" or "definitely not in set".
->
-> <cite>[Source from Wikipedia][1]</cite>
-
-[1]: https://en.wikipedia.org/wiki/Bloom_filter
+**PUF** _(Pejorative Username Filter)_ is a package built in Go that uses bloom's filter to validate if a specific username is definitely not present in a dataset that might represent a pejorative username that shouldn't be used.  
 
 ## Why use puf
 
-With puf, you can quickly check a username against our hand-picked dataset to make sure it's cool with community rules. That way, we all get to hang out in a safer space. We're always tweaking our dataset to keep up with the latest tricks from the bad guys.
+With puf, you can quickly check a username against our hand-picked dataset to make sure it's cool with community rules. That way, we all get to hang out in a safer space. We're always tweaking our dataset to keep up with the latest hacks.
 
 ## Install
 
